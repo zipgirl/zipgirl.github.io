@@ -1,14 +1,14 @@
 ---
-title: "Keeping an engineering notebook"
-description: "Why documenting the process matters as much as the result."
+title: "Llevar una bitácora de ingeniería"
+description: "Por qué documentar el proceso importa tanto como el resultado."
 date: 2026-11-18T09:30:00-03:00
 category: "tech"
 draft: false
 bibliography: []
 ---
 
-# The work behind the work
+# El trabajo detrás del trabajo
 
-A good engineering result rarely appears fully formed. It comes from assumptions tested, models revised, edge cases discovered, and decisions documented.
+Un buen resultado de ingeniería rara vez aparece terminado desde el primer momento. Se construye poniendo a prueba supuestos, revisando modelos, encontrando casos límite y dejando registro de las decisiones.
 
-An engineering notebook makes that invisible process legible. It is a record of not only what worked, but why it worked — and what I would change next time.
+Una bitácora de ingeniería vuelve visible ese proceso. No deja constancia solamente de lo que funcionó, sino también de por qué funcionó y qué haría distinto la próxima vez.
