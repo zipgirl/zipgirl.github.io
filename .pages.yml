@@ -25,6 +25,9 @@ content:
         label: Publication date and time
         type: date
         required: true
+        options:
+          time: true
+          format: "yyyy-MM-dd'T'HH:mm:ssXXX"
       - name: category
         label: Category
         type: select
@@ -54,6 +57,9 @@ content:
       - name: body
         label: Article
         type: rich-text
+        options:
+          format: markdown
+          switcher: true
 
 settings:
   content:
