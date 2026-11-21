@@ -1,5 +1,9 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+const recentPosts = (await getCollection('blog', ({data}) => !data.draft))
+  .sort((a,b) => b.data.date.valueOf()-a.data.date.valueOf())
+  .slice(0, 3);
 ---
 <BaseLayout title="zipgirl — a digital universe" description="Engineering, ideas and everything in between.">
   <div class="wrap">
@@ -20,8 +24,11 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     </div>
     <hr class="rule"/>
     <div class="section-head"><div><div class="eyebrow">from the notebook</div><h2>Recent writing</h2></div><a class="kicker" href="/blog/">read the journal ↗</a></div>
-    <div class="post"><div class="post-meta">a girl · november 21, 2026</div><h3><a href="/blog/hello-world/">A little corner of the internet</a></h3><p>An opening note on building a thoughtful digital home.</p></div>
-    <div class="post"><div class="post-meta">tech · november 18, 2026</div><h3><a href="/blog/engineering-notes/">Keeping an engineering notebook</a></h3><p>Why documenting the process matters as much as the result.</p></div>
+    {recentPosts.length > 0 ? recentPosts.map(post=><article class="post">
+      <div class="post-meta">{post.data.category} · {post.data.date.toLocaleDateString('en',{year:'numeric',month:'long',day:'numeric'})}</div>
+      <h3><a href={`/blog/${post.id}/`}>{post.data.title}</a></h3>
+      <p>{post.data.description}</p>
+    </article>) : <p>New notes are on their way.</p>}
     <div class="section-head" style="margin-top:70px"><div><div class="eyebrow">the universe</div><h2>More to explore</h2></div></div>
     <div class="grid">
       <a class="card" href="/about/"><div class="meta">01 / about</div><h3>The person behind the work</h3><p>Background, interests, skills and current curiosities.</p></a>
