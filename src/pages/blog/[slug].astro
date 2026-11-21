@@ -1,0 +1,23 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection, render } from 'astro:content';
+export async function getStaticPaths() {
+  const posts = await getCollection('blog', ({data}) => !data.draft);
+  return posts.map(post => ({ params: { slug: post.id }, props: { post } }));
+}
+const { post } = Astro.props;
+const { Content } = await render(post);
+const all = (await getCollection('blog', ({data}) => !data.draft)).sort((a,b)=>a.data.date.valueOf()-b.data.date.valueOf());
+const index = all.findIndex(p=>p.id===post.id);
+const previous = all[index-1], next = all[index+1];
+---
+<BaseLayout title={`${post.data.title} — zipgirl`} description={post.data.description}>
+  <article class="wrap prose">
+    <a class="kicker" href="/blog/">← back to blogs</a>
+    <div class="eyebrow" style="margin-top:45px">{post.data.category} · {post.data.date.toLocaleString('en',{dateStyle:'long',timeStyle:'short'})}</div>
+    <h1 style="font-size:clamp(3rem,7vw,5.5rem)">{post.data.title}</h1><p style="font-size:1.15rem">{post.data.description}</p>
+    <hr class="rule"/><div class="article-body"><Content /></div>
+    {post.data.bibliography.length > 0 && <section><hr class="rule"/><h2>Bibliography</h2><ul>{post.data.bibliography.map(item=><li>{item.url ? <a href={item.url}>{item.label}</a> : item.label}</li>)}</ul></section>}
+    <hr class="rule"/><div class="two-col"><div>{previous && <a href={`/blog/${previous.id}/`}>← Previous: {previous.data.title}</a>}</div><div style="text-align:right">{next && <a href={`/blog/${next.id}/`}>Next: {next.data.title} →</a>}</div></div>
+  </article>
+</BaseLayout>
