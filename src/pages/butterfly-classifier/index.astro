@@ -95,7 +95,13 @@ const predictButton = document.querySelector('#predict-button');
 const status = document.querySelector('#demo-status');
 let selectedFile = null;
 let previewUrl = null;
+let modelReady = false;
 const configured = !API_BASE.includes('YOUR-INFERENCE-SERVICE');
+async function checkHealth(){
+ if(!configured){status.textContent='El endpoint de inferencia todavía no está configurado.';return;}
+ try{const response=await fetch(API_BASE+'/health');if(!response.ok)throw new Error('health unavailable');const health=await response.json();modelReady=health.model_ready===true;predictButton.disabled=!selectedFile||!modelReady;status.textContent=modelReady?'Servicio listo. Podés analizar tu imagen.':'API conectada; el modelo entrenado todavía no está publicado.';}
+ catch{modelReady=false;predictButton.disabled=true;status.textContent='No se pudo conectar con el servicio de inferencia.';}
+}
 function setFile(file){
   if(!file)return;
   if(!['image/jpeg','image/png','image/webp'].includes(file.type)){status.textContent='Formato no compatible. Usá JPG, PNG o WEBP.';return;}
@@ -103,7 +109,7 @@ function setFile(file){
   selectedFile=file;
   if(previewUrl)URL.revokeObjectURL(previewUrl);
   previewUrl=URL.createObjectURL(file);preview.src=previewUrl;fileName.textContent=file.name;
-  dropzone.hidden=true;previewWrap.hidden=false;predictButton.disabled=!configured;status.textContent=configured?'Imagen lista para analizar.':'La interfaz está lista; falta publicar el servicio del modelo.';
+  dropzone.hidden=true;previewWrap.hidden=false;predictButton.disabled=!modelReady;status.textContent=modelReady?'Imagen lista para analizar.':'La API está conectada, pero el modelo entrenado todavía no está publicado.';
 }
 function clearFile(){selectedFile=null;if(previewUrl)URL.revokeObjectURL(previewUrl);previewUrl=null;input.value='';previewWrap.hidden=true;dropzone.hidden=false;predictButton.disabled=true;}
 input.addEventListener('change',e=>setFile(e.target.files[0]));
@@ -136,5 +142,6 @@ predictButton.addEventListener('click',async()=>{
  finally{predictButton.disabled=false;predictButton.innerHTML='Analizar imagen <span>↗</span>';}
 });
 loadMetrics();
+checkHealth();
 </script>
 </BaseLayout>
