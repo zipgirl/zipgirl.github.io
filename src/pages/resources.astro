@@ -1,0 +1,15 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+const groups = [
+  {name:'Learning & research',desc:'Reference books, papers, lecture notes and learning paths.'},
+  {name:'Engineering & data',desc:'Technical tools, datasets, documentation and analytical utilities.'},
+  {name:'Creative practice',desc:'Design references, visual inspiration, writing and culture.'},
+  {name:'Everyday systems',desc:'Small apps, workflows and resources that make life easier.'}
+];
+---
+<BaseLayout title="Resources — zipgirl">
+  <div class="wrap">
+    <div class="eyebrow">the curated shelf</div><h1>Useful things,<br/><em>kept close.</em></h1><p class="hero-copy">A growing library of tools, references and recommendations I return to or want to remember.</p>
+    <div class="grid">{groups.map((g,i)=><article class="card"><div class="meta">SHELF / 0{i+1}</div><h3>{g.name}</h3><p>{g.desc}</p><span class="kicker">collection in progress</span></article>)}</div>
+  </div>
+</BaseLayout>
