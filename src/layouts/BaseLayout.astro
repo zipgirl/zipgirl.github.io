@@ -10,12 +10,10 @@ const { title = 'zipgirl - un universo digital', description = 'Portfolio indepe
 </head>
 <body>
 <div class="grain" aria-hidden="true"></div>
-<header class="site-header"><a class="brand" href="/" aria-label="Inicio de zipgirl">zipgirl<span>♡</span></a><nav aria-label="Navegación principal"><a href="/about/">sobre mí</a><a href="/projects/">proyectos</a><a href="/blog/">blog</a><a href="/resources/">recursos</a></nav><button class="theme-toggle" type="button" aria-label="Cambiar entre tema claro y oscuro">☼</button></header>
+<header class="site-header"><a class="brand" href="/" aria-label="Inicio de zipgirl"><picture class="brand-mark"><img class="logo-dark" src="/images/zipgirl-dark.webp" alt="zipgirl" /><img class="logo-light" src="/images/zipgirl-light.webp" alt="zipgirl" /></picture></a><nav aria-label="Navegación principal"><a href="/about/">sobre mí</a><a href="/projects/">proyectos</a><a href="/blog/">blog</a><a href="/resources/">recursos</a></nav><button class="theme-toggle" type="button" aria-label="Cambiar entre tema claro y oscuro">☼</button></header>
 <main><slot /></main>
-<footer class="site-footer"><span>© {new Date().getFullYear()} zipgirl</span><span>hecho con intención <b>✳</b></span><a href="/about/">sobre mí y contacto ↗</a></footer>
-<div class="pixel-cat" aria-hidden="true"><svg class="cat-sprite" viewBox="0 0 16 16" role="presentation" shape-rendering="crispEdges"><path d="M3 5V1h3v3h4V1h3v4c1 1 2 2 2 4v3h-2v2h-2v-2H6v2H4v-2H2V9c0-2 0-3 1-4Z" fill="#08070a" stroke="#e9a9c2" stroke-width=".35"/><path d="M1 10H2V8H1V7H0V9H1Z" fill="#08070a" stroke="#e9a9c2" stroke-width=".25"/><path d="M5 7h1v1H5zm5 0h1v1h-1zM7 9h2v1H7z" fill="#e9a9c2"/></svg></div>
+<footer class="site-footer"><span>© {new Date().getFullYear()} zipgirl</span><span>hecho con intención <b class="ornament-star" aria-hidden="true"><svg viewBox="0 0 18 18"><path d="M9 1l1.8 5.2L16 8l-5.2 1.8L9 15l-1.8-5.2L2 8l5.2-1.8z" fill="currentColor" /></svg></b></span><a href="/about/">sobre mí y contacto ↗</a></footer>
 <script is:inline>
 const toggle=document.querySelector('.theme-toggle');const saved=localStorage.getItem('zipgirl-theme');if(saved==='light')document.documentElement.dataset.theme='light';toggle?.addEventListener('click',()=>{const light=document.documentElement.dataset.theme!=='light';document.documentElement.dataset.theme=light?'light':'dark';localStorage.setItem('zipgirl-theme',light?'light':'dark')});
-const cat=document.querySelector('.pixel-cat');if(cat){const wander=()=>{cat.classList.remove('cat-walk','cat-stretch');cat.classList.add(Math.random()>.5?'cat-walk':'cat-stretch');setTimeout(()=>cat.classList.remove('cat-walk','cat-stretch'),2600)};const nap=()=>{cat.classList.add('cat-away');setTimeout(()=>cat.classList.remove('cat-away'),2200)};setInterval(wander,9000);setInterval(nap,27000)}
 </script>
 </body></html>
