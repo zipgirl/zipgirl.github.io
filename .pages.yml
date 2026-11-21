@@ -1,10 +1,9 @@
 media:
   input: public/media
   output: /media
-
 content:
   - name: blog
-    label: Blog articles
+    label: Artículos del blog
     type: collection
     path: src/content/blog
     filename: "{primary}.md"
@@ -14,53 +13,52 @@ content:
       order: desc
     fields:
       - name: title
-        label: Article title
+        label: Título del artículo
         type: string
         required: true
       - name: description
-        label: Short introduction
+        label: Bajada / resumen
         type: text
         required: true
       - name: date
-        label: Publication date and time
+        label: Fecha y hora de publicación
         type: date
         required: true
         options:
           time: true
           format: "yyyy-MM-dd'T'HH:mm:ssXXX"
       - name: category
-        label: Category
+        label: Categoría
         type: select
         required: true
         options:
           values:
-            - label: a girl
+            - label: Una chica
               value: a girl
-            - label: tech
+            - label: Tecnología
               value: tech
-            - label: media
+            - label: Cultura y medios
               value: media
       - name: draft
-        label: Draft
+        label: Borrador (no publicar)
         type: boolean
       - name: bibliography
-        label: Bibliography
+        label: Bibliografía y fuentes
         type: object
         list: true
         fields:
           - name: label
-            label: Reference
+            label: Referencia
             type: string
           - name: url
-            label: URL
+            label: Enlace (URL)
             type: string
       - name: body
-        label: Article
+        label: Contenido del artículo
         type: rich-text
         options:
           format: markdown
           switcher: true
-
 settings:
   content:
     merge: false
