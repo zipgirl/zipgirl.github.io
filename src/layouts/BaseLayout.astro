@@ -30,7 +30,13 @@ const { title = 'zipgirl — a digital universe', description = 'An independent 
     </header>
     <main><slot /></main>
     <footer class="site-footer"><span>© {new Date().getFullYear()} zipgirl</span><span>made with intention <b>✳</b></span><a href="/about/">about & correspondence ↗</a></footer>
-    <div class="pixel-cat" aria-hidden="true"><span> /_/\\</span><span>( o.o )</span><span> &gt; ^ &lt;</span></div>
+    <div class="pixel-cat" aria-hidden="true">
+      <svg class="cat-sprite" viewBox="0 0 16 16" role="presentation" shape-rendering="crispEdges">
+        <path d="M3 5V1h3v3h4V1h3v4c1 1 2 2 2 4v3h-2v2h-2v-2H6v2H4v-2H2V9c0-2 0-3 1-4Z" fill="#08070a" stroke="#e9a9c2" stroke-width=".35"/>
+        <path d="M1 10H2V8H1V7H0V9H1Z" fill="#08070a" stroke="#e9a9c2" stroke-width=".25"/>
+        <path d="M5 7h1v1H5zm5 0h1v1h-1zM7 9h2v1H7z" fill="#e9a9c2"/>
+      </svg>
+    </div>
     <script is:inline>
       const toggle = document.querySelector('.theme-toggle');
       const saved = localStorage.getItem('zipgirl-theme');
