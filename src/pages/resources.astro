@@ -1,15 +1,5 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-const groups = [
-  {name:'Learning & research',desc:'Reference books, papers, lecture notes and learning paths.'},
-  {name:'Engineering & data',desc:'Technical tools, datasets, documentation and analytical utilities.'},
-  {name:'Creative practice',desc:'Design references, visual inspiration, writing and culture.'},
-  {name:'Everyday systems',desc:'Small apps, workflows and resources that make life easier.'}
-];
+const groups=[{name:'Aprendizaje e investigación',desc:'Libros de consulta, artículos, apuntes y recorridos de aprendizaje.'},{name:'Ingeniería y datos',desc:'Herramientas técnicas, conjuntos de datos, documentación y utilidades de análisis.'},{name:'Práctica creativa',desc:'Referencias de diseño, inspiración visual, escritura y cultura.'},{name:'Sistemas para el día a día',desc:'Aplicaciones, flujos de trabajo y recursos que simplifican la vida.'}];
 ---
-<BaseLayout title="Resources — zipgirl">
-  <div class="wrap">
-    <div class="eyebrow">the curated shelf</div><h1>Useful things,<br/><em>kept close.</em></h1><p class="hero-copy">A growing library of tools, references and recommendations I return to or want to remember.</p>
-    <div class="grid">{groups.map((g,i)=><article class="card"><div class="meta">SHELF / 0{i+1}</div><h3>{g.name}</h3><p>{g.desc}</p><span class="kicker">collection in progress</span></article>)}</div>
-  </div>
-</BaseLayout>
+<BaseLayout title="Recursos - zipgirl" description="Una biblioteca personal de herramientas, referencias y recomendaciones."><div class="wrap"><div class="eyebrow">la biblioteca curada</div><h1>Cosas útiles,<br/><em>siempre a mano.</em></h1><p class="hero-copy">Una colección en crecimiento de herramientas, referencias y hallazgos a los que vuelvo o que quiero tener presentes.</p><div class="grid">{groups.map((g,i)=><article class="card"><div class="meta">ESTANTE / 0{i+1}</div><h3>{g.name}</h3><p>{g.desc}</p><span class="kicker">colección en preparación</span></article>)}</div></div></BaseLayout>
