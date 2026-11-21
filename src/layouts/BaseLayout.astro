@@ -1,0 +1,48 @@
+---
+import '../styles/global.css';
+const { title = 'zipgirl — a digital universe', description = 'An independent portfolio, notebook and archive.' } = Astro.props;
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#120d12" />
+    <meta name="description" content={description} />
+    <title>{title}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="grain" aria-hidden="true"></div>
+    <header class="site-header">
+      <a class="brand" href="/" aria-label="zipgirl home">zipgirl<span>♡</span></a>
+      <nav aria-label="Main navigation">
+        <a href="/about/">about</a><a href="/projects/">projects</a><a href="/blog/">blogs</a><a href="/resources/">resources</a>
+      </nav>
+      <button class="theme-toggle" type="button" aria-label="Toggle light and dark theme">☼</button>
+    </header>
+    <main><slot /></main>
+    <footer class="site-footer"><span>© {new Date().getFullYear()} zipgirl</span><span>made with intention <b>✳</b></span><a href="mailto:hello@zipgirl.dev">say hello ↗</a></footer>
+    <div class="pixel-cat" aria-hidden="true"><span> /_/\\</span><span>( o.o )</span><span> &gt; ^ &lt;</span></div>
+    <script is:inline>
+      const toggle = document.querySelector('.theme-toggle');
+      const saved = localStorage.getItem('zipgirl-theme');
+      if (saved === 'light') document.documentElement.dataset.theme = 'light';
+      toggle?.addEventListener('click', () => {
+        const light = document.documentElement.dataset.theme !== 'light';
+        document.documentElement.dataset.theme = light ? 'light' : 'dark';
+        localStorage.setItem('zipgirl-theme', light ? 'light' : 'dark');
+      });
+      const cat = document.querySelector('.pixel-cat');
+      if (cat) {
+        const wander = () => {
+          cat.classList.toggle('cat-away');
+          setTimeout(() => cat.classList.toggle('cat-away'), 1800);
+        };
+        setInterval(wander, 18000);
+      }
+    </script>
+  </body>
+</html>
