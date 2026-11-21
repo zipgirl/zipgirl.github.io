@@ -38,10 +38,16 @@ const { title = 'zipgirl — a digital universe', description = 'An independent 
       const cat = document.querySelector('.pixel-cat');
       if (cat) {
         const wander = () => {
-          cat.classList.toggle('cat-away');
-          setTimeout(() => cat.classList.toggle('cat-away'), 1800);
+          cat.classList.remove('cat-walk', 'cat-stretch');
+          cat.classList.add(Math.random() > 0.5 ? 'cat-walk' : 'cat-stretch');
+          setTimeout(() => cat.classList.remove('cat-walk', 'cat-stretch'), 2600);
         };
-        setInterval(wander, 18000);
+        const nap = () => {
+          cat.classList.add('cat-away');
+          setTimeout(() => cat.classList.remove('cat-away'), 2200);
+        };
+        setInterval(wander, 9000);
+        setInterval(nap, 27000);
       }
     </script>
   </body>
