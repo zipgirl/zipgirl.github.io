@@ -1,0 +1,22 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+const posts = (await getCollection('blog', ({data}) => !data.draft)).sort((a,b) => b.data.date.valueOf()-a.data.date.valueOf());
+const categories = ['all','a girl','tech','media'];
+---
+<BaseLayout title="Blogs — zipgirl">
+  <div class="wrap">
+    <div class="eyebrow">the weekly notebook</div><h1>Words &<br/><em>worlds.</em></h1><p class="hero-copy">Personal reflections, technical notes and things worth thinking about twice.</p>
+    <div class="filter-row" role="group" aria-label="Filter articles">{categories.map((c,i)=><button class="filter" data-filter={c} aria-pressed={i===0?'true':'false'}>{c}</button>)}</div>
+    <div id="posts">{posts.map(post=><article class="post" data-category={post.data.category}><div class="post-meta">{post.data.category} · {post.data.date.toLocaleDateString('en',{year:'numeric',month:'long',day:'numeric'})}</div><h3><a href={`/blog/${post.id}/`}>{post.data.title}</a></h3><p>{post.data.description}</p></article>)}</div>
+  </div>
+  <script>
+    const buttons = document.querySelectorAll<HTMLButtonElement>('[data-filter]');
+    const posts = document.querySelectorAll<HTMLElement>('[data-category]');
+    buttons.forEach(button => button.addEventListener('click', () => {
+      const filter = button.dataset.filter;
+      buttons.forEach(b => b.setAttribute('aria-pressed', String(b === button)));
+      posts.forEach(post => { post.hidden = filter !== 'all' && post.dataset.category !== filter; });
+    }));
+  </script>
+</BaseLayout>
