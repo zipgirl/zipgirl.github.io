@@ -1,0 +1,13 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { projects } from '../../data/projects';
+export function getStaticPaths(){return projects.map(project=>({params:{slug:project.slug},props:{project}}))}
+const {project}=Astro.props;
+---
+<BaseLayout title={`${project.title} - zipgirl`} description={project.description}>
+<article class="wrap">
+<a class="back-link" href="/projects/">← Volver a proyectos</a>
+<header class="detail-hero"><div class="eyebrow">archivo de proyectos / {project.number}</div><h1>{project.title}</h1><p class="detail-intro">{project.intro}</p><div class="detail-meta"><span>{project.category}</span><span>{project.year}</span><span>{project.status}</span></div></header>
+<div class="detail-layout"><div class="detail-content"><p>{project.description}</p><div class="detail-note">Esta ficha está en construcción. El contenido se va a completar con el desarrollo real del proyecto, sin inventar resultados ni datos.</div>{project.sections.map((section,i)=><section><div class="eyebrow" style="margin-top:55px">0{i+1} / proceso</div><h2>{section.title}</h2><p>{section.body}</p></section>)}<div class="ornament-divider"><span>❦</span></div><a class="back-link" href="/projects/">← Explorar otros proyectos</a></div><aside class="detail-aside"><div class="eyebrow">ficha del proyecto</div><h3>{project.role}</h3><p>Estado: {project.status}</p><p>Año: {project.year}</p><hr class="rule" style="margin:24px 0"/><div class="eyebrow">herramientas y temas</div>{project.tags.map(tag=><span class="tag">{tag}</span>)}</aside></div>
+</article>
+</BaseLayout>
