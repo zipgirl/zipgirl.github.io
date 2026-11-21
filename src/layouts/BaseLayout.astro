@@ -1,65 +1,21 @@
 ---
 import '../styles/global.css';
-const { title = 'zipgirl — a digital universe', description = 'An independent portfolio, notebook and archive.' } = Astro.props;
+const { title = 'zipgirl - un universo digital', description = 'Portfolio independiente, bitácora y archivo personal.' } = Astro.props;
 ---
 <!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#120d12" />
-    <meta name="description" content={description} />
-    <link rel="canonical" href={Astro.url.href} />
-    <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="zipgirl" />
-    <meta property="og:title" content={title} />
-    <meta property="og:description" content={description} />
-    <title>{title}</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&display=swap" rel="stylesheet" />
-  </head>
-  <body>
-    <div class="grain" aria-hidden="true"></div>
-    <header class="site-header">
-      <a class="brand" href="/" aria-label="zipgirl home">zipgirl<span>♡</span></a>
-      <nav aria-label="Main navigation">
-        <a href="/about/">about</a><a href="/projects/">projects</a><a href="/blog/">blogs</a><a href="/resources/">resources</a>
-      </nav>
-      <button class="theme-toggle" type="button" aria-label="Toggle light and dark theme">☼</button>
-    </header>
-    <main><slot /></main>
-    <footer class="site-footer"><span>© {new Date().getFullYear()} zipgirl</span><span>made with intention <b>✳</b></span><a href="/about/">about & correspondence ↗</a></footer>
-    <div class="pixel-cat" aria-hidden="true">
-      <svg class="cat-sprite" viewBox="0 0 16 16" role="presentation" shape-rendering="crispEdges">
-        <path d="M3 5V1h3v3h4V1h3v4c1 1 2 2 2 4v3h-2v2h-2v-2H6v2H4v-2H2V9c0-2 0-3 1-4Z" fill="#08070a" stroke="#e9a9c2" stroke-width=".35"/>
-        <path d="M1 10H2V8H1V7H0V9H1Z" fill="#08070a" stroke="#e9a9c2" stroke-width=".25"/>
-        <path d="M5 7h1v1H5zm5 0h1v1h-1zM7 9h2v1H7z" fill="#e9a9c2"/>
-      </svg>
-    </div>
-    <script is:inline>
-      const toggle = document.querySelector('.theme-toggle');
-      const saved = localStorage.getItem('zipgirl-theme');
-      if (saved === 'light') document.documentElement.dataset.theme = 'light';
-      toggle?.addEventListener('click', () => {
-        const light = document.documentElement.dataset.theme !== 'light';
-        document.documentElement.dataset.theme = light ? 'light' : 'dark';
-        localStorage.setItem('zipgirl-theme', light ? 'light' : 'dark');
-      });
-      const cat = document.querySelector('.pixel-cat');
-      if (cat) {
-        const wander = () => {
-          cat.classList.remove('cat-walk', 'cat-stretch');
-          cat.classList.add(Math.random() > 0.5 ? 'cat-walk' : 'cat-stretch');
-          setTimeout(() => cat.classList.remove('cat-walk', 'cat-stretch'), 2600);
-        };
-        const nap = () => {
-          cat.classList.add('cat-away');
-          setTimeout(() => cat.classList.remove('cat-away'), 2200);
-        };
-        setInterval(wander, 9000);
-        setInterval(nap, 27000);
-      }
-    </script>
-  </body>
-</html>
+<html lang="es-AR">
+<head>
+<meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><meta name="theme-color" content="#120d12" /><meta name="description" content={description} /><link rel="canonical" href={Astro.url.href} /><meta property="og:locale" content="es_AR" /><meta property="og:type" content="website" /><meta property="og:site_name" content="zipgirl" /><meta property="og:title" content={title} /><meta property="og:description" content={description} /><title>{title}</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin /><link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&display=swap" rel="stylesheet" />
+</head>
+<body>
+<div class="grain" aria-hidden="true"></div>
+<header class="site-header"><a class="brand" href="/" aria-label="Inicio de zipgirl">zipgirl<span>♡</span></a><nav aria-label="Navegación principal"><a href="/about/">sobre mí</a><a href="/projects/">proyectos</a><a href="/blog/">blog</a><a href="/resources/">recursos</a></nav><button class="theme-toggle" type="button" aria-label="Cambiar entre tema claro y oscuro">☼</button></header>
+<main><slot /></main>
+<footer class="site-footer"><span>© {new Date().getFullYear()} zipgirl</span><span>hecho con intención <b>✳</b></span><a href="/about/">sobre mí y contacto ↗</a></footer>
+<div class="pixel-cat" aria-hidden="true"><svg class="cat-sprite" viewBox="0 0 16 16" role="presentation" shape-rendering="crispEdges"><path d="M3 5V1h3v3h4V1h3v4c1 1 2 2 2 4v3h-2v2h-2v-2H6v2H4v-2H2V9c0-2 0-3 1-4Z" fill="#08070a" stroke="#e9a9c2" stroke-width=".35"/><path d="M1 10H2V8H1V7H0V9H1Z" fill="#08070a" stroke="#e9a9c2" stroke-width=".25"/><path d="M5 7h1v1H5zm5 0h1v1h-1zM7 9h2v1H7z" fill="#e9a9c2"/></svg></div>
+<script is:inline>
+const toggle=document.querySelector('.theme-toggle');const saved=localStorage.getItem('zipgirl-theme');if(saved==='light')document.documentElement.dataset.theme='light';toggle?.addEventListener('click',()=>{const light=document.documentElement.dataset.theme!=='light';document.documentElement.dataset.theme=light?'light':'dark';localStorage.setItem('zipgirl-theme',light?'light':'dark')});
+const cat=document.querySelector('.pixel-cat');if(cat){const wander=()=>{cat.classList.remove('cat-walk','cat-stretch');cat.classList.add(Math.random()>.5?'cat-walk':'cat-stretch');setTimeout(()=>cat.classList.remove('cat-walk','cat-stretch'),2600)};const nap=()=>{cat.classList.add('cat-away');setTimeout(()=>cat.classList.remove('cat-away'),2200)};setInterval(wander,9000);setInterval(nap,27000)}
+</script>
+</body></html>

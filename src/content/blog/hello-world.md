@@ -1,16 +1,16 @@
 ---
-title: "A little corner of the internet"
-description: "An opening note on building a thoughtful digital home."
+title: "Un pequeño rincón en internet"
+description: "Una primera nota sobre cómo construir un espacio digital propio y con intención."
 date: 2026-11-21T12:00:00-03:00
 category: "a girl"
 draft: false
 bibliography: []
 ---
 
-# Welcome to zipgirl
+# Bienvenida a zipgirl
 
-This is the beginning of a living archive: a place for things I make, questions I follow, and ideas worth keeping.
+Este es el comienzo de un archivo vivo: un lugar para las cosas que hago, las preguntas que sigo y las ideas que vale la pena guardar.
 
-I want this space to hold both sides of the story — the technical work and the human curiosity behind it.
+Quiero que este espacio reúna las dos partes de la historia: el trabajo técnico y la curiosidad humana que hay detrás.
 
-More soon. ♡
+Pronto, más. ♡
