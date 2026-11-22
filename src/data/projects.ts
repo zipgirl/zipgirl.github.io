@@ -1,6 +1,6 @@
 export interface Project {
   title: string;
-  category: 'Programación' | 'Análisis de datos';
+  category: 'Programación' | 'Análisis de datos' | 'Aplicaciones web';
   description: string;
   tags: string[];
   href: string;
@@ -10,6 +10,14 @@ export interface Project {
 
 /** Ordered by each live project's latest GitHub push (UTC). */
 export const projects: Project[] = [
+  {
+    title: 'Honoria Córdoba',
+    category: 'Aplicaciones web',
+    description: 'Una herramienta legal-tech para Córdoba: investigación normativa asistida por IA y cálculo de honorarios profesionales con JUS.',
+    tags: ['React', 'FastAPI', 'Cohere', 'LegalTech'],
+    href: '/honoria/',
+    updatedAt: '2026-11-22T19:56:40Z',
+  },
   {
     title: 'Butterfly classifier',
     category: 'Análisis de datos',
