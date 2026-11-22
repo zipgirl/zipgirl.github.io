@@ -14,6 +14,6 @@ const { title = 'ZipGirl - un universo digital', description = 'Portfolio indepe
 <main><slot /></main>
 <footer class="site-footer"><span>© {new Date().getFullYear()} ZipGirl</span><span>hecho con intención <b class="ornament-star" aria-hidden="true"><svg viewBox="0 0 18 18"><path d="M9 1l1.8 5.2L16 8l-5.2 1.8L9 15l-1.8-5.2L2 8l5.2-1.8z" fill="currentColor" /></svg></b></span><a href="/about/">sobre mí y contacto ↗</a></footer>
 <script is:inline>
-const toggle=document.querySelector('.theme-toggle');const saved=localStorage.getItem('ZipGirl-theme');if(saved==='light')document.documentElement.dataset.theme='light';toggle?.addEventListener('click',()=>{const light=document.documentElement.dataset.theme!=='light';document.documentElement.dataset.theme=light?'light':'dark';localStorage.setItem('ZipGirl-theme',light?'light':'dark')});
+const toggle=document.querySelector('.theme-toggle');const saved=localStorage.getItem('ZipGirl-theme')||localStorage.getItem('zipgirl-theme');if(saved==='light')document.documentElement.dataset.theme='light';toggle?.addEventListener('click',()=>{const light=document.documentElement.dataset.theme!=='light';document.documentElement.dataset.theme=light?'light':'dark';localStorage.setItem('ZipGirl-theme',light?'light':'dark')});
 </script>
 </body></html>
