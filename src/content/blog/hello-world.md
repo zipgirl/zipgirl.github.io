@@ -7,7 +7,7 @@ draft: false
 bibliography: []
 ---
 
-# Bienvenida a zipgirl
+# Bienvenida a ZipGirl
 
 Este es el comienzo de un archivo vivo: un lugar para las cosas que hago, las preguntas que sigo y las ideas que vale la pena guardar.
 

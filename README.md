@@ -1,4 +1,4 @@
-# zipgirl
+# ZipGirl
 
 A personal digital universe: engineering portfolio, project archive, weekly journal and curated resource shelf.
 

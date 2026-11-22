@@ -1,7 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 ---
-<BaseLayout title="Derivation Atelier — zipgirl" description="Un sistema experto interactivo para explorar reglas de derivación simbólica.">
+<BaseLayout title="Derivation Atelier — ZipGirl" description="Un sistema experto interactivo para explorar reglas de derivación simbólica.">
   <div class="derivation-page">
     <a class="back-link" href="/projects/">← volver a proyectos</a>
     <header class="hero">
@@ -10,37 +10,25 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
       <p class="intro">Una pequeña exploración de cómo las reglas del cálculo pueden convertirse en un sistema experto. Escribí una función, seguí el razonamiento y observá su derivada.</p>
       <div class="meta"><span>EXPERT SYSTEM</span><span>SYMPY</span><span>EXPERIMENTAL TOOL</span></div>
     </header>
-
     <section class="workspace" aria-labelledby="workspace-title">
       <div class="workspace-heading">
-        <div>
-          <div class="section-label">01 / laboratorio interactivo</div>
-          <h2 id="workspace-title">Probá una<br/><em>derivación.</em></h2>
-        </div>
+        <div><div class="section-label">01 / laboratorio interactivo</div><h2 id="workspace-title">Probá una<br/><em>derivación.</em></h2></div>
         <a class="open-app" href="https://zipgirl-derivation.streamlit.app/" target="_blank" rel="noreferrer">Abrir en una pestaña ↗</a>
       </div>
       <div class="embed-shell">
-        <iframe
-          src="https://zipgirl-derivation.streamlit.app/?embed=true"
-          title="Derivation Atelier, aplicación interactiva"
-          loading="lazy"
-          allow="clipboard-read; clipboard-write"
-          referrerpolicy="strict-origin-when-cross-origin">
-        </iframe>
+        <iframe src="https://zipgirl-derivation.streamlit.app/?embed=true" title="Derivation Atelier, aplicación interactiva" loading="lazy" allow="clipboard-read; clipboard-write" referrerpolicy="strict-origin-when-cross-origin"></iframe>
       </div>
       <p class="embed-note">La herramienta se ejecuta en Streamlit. Si no carga dentro de la página, podés abrirla directamente con el enlace de arriba.</p>
     </section>
-
     <section class="about">
       <div class="section-label">02 / detrás de las reglas</div>
       <h2>Del símbolo<br/><em>al razonamiento.</em></h2>
       <p>El sistema combina un motor de reglas para identificar patrones de derivación con SymPy para manipular expresiones simbólicas. La idea no es solamente obtener un resultado, sino hacer visible parte del camino lógico que lleva hasta él.</p>
       <div class="stack"><span>PYTHON</span><span>EXPERTA</span><span>SYMPY</span><span>STREAMLIT</span></div>
     </section>
-
     <footer class="project-footer">
       <a href="https://github.com/zipgirl/derivation-expert-system" target="_blank" rel="noreferrer">Explorar el código en GitHub ↗</a>
-      <span>Un experimento de zipgirl · 2026</span>
+      <span>Un experimento de ZipGirl · 2026</span>
     </footer>
   </div>
   <style>
